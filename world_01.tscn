@@ -1,12 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://bes4ic323glv0"]
+[gd_scene load_steps=12 format=4 uid="uid://bes4ic323glv0"]
 
-[ext_resource type="Texture2D" uid="uid://c3tljwkkfritr" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Idle (32 x 32).png" id="1_58wi8"]
-[ext_resource type="Script" uid="uid://x5ol7223sawk" path="res://scripts/player.gd" id="1_ovq2m"]
 [ext_resource type="Texture2D" uid="uid://blp33wcx8mwbi" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_vtwh1"]
 [ext_resource type="Texture2D" uid="uid://dck1qtf1hchbo" path="res://assets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_eebbl"]
-[ext_resource type="Texture2D" uid="uid://d6cdeebv6mp1" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_0yxgj"]
-[ext_resource type="Texture2D" uid="uid://cg1k0ejnn5qkv" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="3_c3k7x"]
-[ext_resource type="Texture2D" uid="uid://dh6j53vvsbtln" path="res://icon.svg" id="3_cujcs"]
+[ext_resource type="Texture2D" uid="uid://bo70d473bhiji" path="res://assets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="3_eebbl"]
+[ext_resource type="PackedScene" uid="uid://c1hmbt41a42b0" path="res://actors/player.tscn" id="4_c3k7x"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vtwh1"]
 tile_data = PackedInt32Array(0, 65537, 1)
@@ -53,6 +50,8 @@ texture = ExtResource("1_vtwh1")
 12:3/0 = 0
 13:3/0 = 0
 15:3/0 = 0
+15:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:3/0/physics_layer_0/polygon_0/one_way = true
 1:4/0 = 0
 1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
@@ -106,118 +105,41 @@ texture = ExtResource("2_eebbl")
 16:5/0 = 0
 18:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sqnv"]
+texture = ExtResource("3_eebbl")
+1:1/size_in_atlas = Vector2i(3, 3)
+1:1/0 = 0
+5:2/size_in_atlas = Vector2i(4, 2)
+5:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_0sqnv"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_8rwgp")
 sources/1 = SubResource("TileSetAtlasSource_1qi1b")
+sources/2 = SubResource("TileSetAtlasSource_0sqnv")
 pattern_0 = SubResource("TileMapPattern_vtwh1")
 pattern_1 = SubResource("TileMapPattern_eebbl")
 pattern_2 = SubResource("TileMapPattern_8rwgp")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3k7x"]
-height = 22.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovq2m"]
-atlas = ExtResource("1_58wi8")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cujcs"]
-atlas = ExtResource("1_58wi8")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rwgp"]
-atlas = ExtResource("3_0yxgj")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0yxgj"]
-atlas = ExtResource("3_c3k7x")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jclph"]
-atlas = ExtResource("3_c3k7x")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtwh1"]
-atlas = ExtResource("3_c3k7x")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eebbl"]
-atlas = ExtResource("3_c3k7x")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cujcs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ovq2m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cujcs")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8rwgp")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0yxgj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jclph")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtwh1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eebbl")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yxgj"]
-size = Vector2(303, 20)
-
 [node name="World-01" type="Node2D"]
+position = Vector2(420, 323)
 
 [node name="level" type="TileMap" parent="."]
 position = Vector2(-2, 0)
 tile_set = SubResource("TileSet_0sqnv")
 format = 2
-layer_0/name = "ground"
-layer_0/tile_data = PackedInt32Array(131064, 262144, 1, 131065, 262144, 1, 131066, 262144, 1, 131067, 262144, 1, 131068, 262144, 1, 131069, 262144, 1, 131070, 262144, 1, 131071, 262144, 1, 65536, 262144, 1, 65538, 262144, 1, 65539, 262144, 1, 65540, 262144, 1, 65541, 262144, 1, 65542, 262144, 1, 65543, 262144, 1, 65544, 262144, 1, 196600, 393216, 4, 196601, 393216, 4, 196602, 393216, 4, 196603, 393216, 4, 196604, 393216, 4, 196605, 393216, 4, 196606, 393216, 4, 196607, 393216, 4, 131072, 393216, 4, 131074, 393216, 4, 131075, 393216, 4, 131076, 393216, 4, 131077, 393216, 4, 131078, 393216, 4, 131079, 393216, 4, 131080, 393216, 4, 131063, 196608, 1, 65545, 327680, 1, 65537, 262144, 1, 131073, 393216, 4)
-layer_1/name = "trees"
-layer_1/tile_data = PackedInt32Array(-7, 65537, 1, -65532, 65537, 1, -2, 327681, 1, -65527, 327681, 1)
 
-[node name="player" type="CharacterBody2D" parent="."]
-texture_filter = 1
-script = ExtResource("1_ovq2m")
+[node name="ground" type="TileMapLayer" parent="level"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD4/wEAAAAEAAEAAAD5/wEAAAAEAAEAAAD6/wEAAAAEAAEAAAD7/wEAAAAEAAEAAAD8/wEAAAAEAAEAAAD9/wEAAAAEAAEAAAD+/wEAAAAEAAEAAAD//wEAAAAEAAEAAAAAAAEAAAAEAAEAAAACAAEAAAAEAAEAAAADAAEAAAAEAAEAAAAEAAEAAAAEAAEAAAAFAAEAAAAEAAEAAAAGAAEAAAAEAAEAAAAHAAEAAAAEAAEAAAAIAAEAAAAEAAEAAAD4/wIAAAAGAAQAAAD5/wIAAAAGAAQAAAD6/wIAAAAGAAQAAAD7/wIAAAAGAAQAAAD8/wIAAAAGAAQAAAD9/wIAAAAGAAQAAAD+/wIAAAAGAAQAAAD//wIAAAAGAAQAAAAAAAIAAAAGAAQAAAACAAIAAAAGAAQAAAADAAIAAAAGAAQAAAAEAAIAAAAGAAQAAAAFAAIAAAAGAAQAAAAGAAIAAAAGAAQAAAAHAAIAAAAGAAQAAAAIAAIAAAAGAAQAAAD3/wEAAAADAAEAAAAJAAEAAAAFAAEAAAABAAEAAAAEAAEAAAABAAIAAAAGAAQAAAAJAAIAAAAHAAQAAAD3/wIAAAABAAQAAAACAP3/AAAPAAMAAAD7////AgABAAEAAAA=")
+tile_set = SubResource("TileSet_0sqnv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-shape = SubResource("CapsuleShape2D_c3k7x")
+[node name="trees" type="TileMapLayer" parent="level"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD5////AQABAAEAAAAEAP//AQABAAEAAAD+////AQAFAAEAAAAJAP//AQAFAAEAAAA=")
+tile_set = SubResource("TileSet_0sqnv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
-position = Vector2(0, -5)
-sprite_frames = SubResource("SpriteFrames_cujcs")
-animation = &"idle"
-autoplay = "idle"
+[node name="player" parent="." instance=ExtResource("4_c3k7x")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-240, 119)
-shape = SubResource("RectangleShape2D_0yxgj")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-150, 218)
-scale = Vector2(1.67969, 0.1875)
-texture = ExtResource("3_cujcs")
