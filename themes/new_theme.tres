@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://lblsal6njd1r"]
+
+[ext_resource type="FontFile" uid="uid://dy56evvk2wkox" path="res://assets/fonts/at01.ttf" id="1_s1hyc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uw25j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_765p2"]
+
+[resource]
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.117647, 1)
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.117647, 1)
+Button/colors/font_hover_pressed_color = Color(0.94902, 0.94902, 0.117647, 1)
+Button/fonts/font = ExtResource("1_s1hyc")
+Button/styles/focus = SubResource("StyleBoxEmpty_uw25j")
+Button/styles/hover = SubResource("StyleBoxEmpty_765p2")
